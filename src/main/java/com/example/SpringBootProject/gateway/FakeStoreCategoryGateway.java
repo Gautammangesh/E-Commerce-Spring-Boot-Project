@@ -2,6 +2,8 @@ package com.example.SpringBootProject.gateway;
 
 import com.example.SpringBootProject.dto.CategoryDTO;
 import com.example.SpringBootProject.gateway.api.FakeStoreCategoryApi;
+import com.example.SpringBootProject.mappers.GetAllCategoriesMapper;
+
 import org.springframework.stereotype.Component;
 import retrofit2.Response;
 
@@ -26,10 +28,6 @@ public class FakeStoreCategoryGateway implements ICategoryGateway{
             throw new IOException("Failed to fetch categories from FakeStore API");
         }
 
-        return response.body().stream()
-                .map(category -> CategoryDTO.builder()
-                        .name(category)
-                        .build())
-                .toList();
+        return GetAllCategoriesMapper.toCategoryDto(response.body());
     }
 }
