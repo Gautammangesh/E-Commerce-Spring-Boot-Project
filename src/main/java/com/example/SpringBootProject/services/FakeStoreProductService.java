@@ -21,6 +21,10 @@ public class FakeStoreProductService implements IProductService {
         return productGateway.getSingleProduct(id);
     }
 
+    public ProductDTO createProduct(ProductDTO dto) {
+        return null;
+    }
+
     @Override
     public List<ProductDTO> getProductsByCategory(String categoryName) throws IOException {
         return productGateway.getProductsByCategory(categoryName);

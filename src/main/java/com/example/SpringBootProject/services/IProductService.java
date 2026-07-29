@@ -7,5 +7,8 @@ import java.util.List;
 
 public interface IProductService {
     ProductDTO getSingleProduct(Long id) throws IOException;
+
+    ProductDTO createProduct(ProductDTO dto);
+
     List<ProductDTO> getProductsByCategory(String categoryName) throws IOException;
 }
